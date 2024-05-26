@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Top Up</title>
+
+    <link rel="stylesheet" href="index.css" />
+    <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
+    <script src="index.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+      integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+  </head>
+  <body>
+    <nav>
+      <div class="nav-container">
+        <a href="index.html">
+          <img
+            src="./img/logo-mockup.jpg"
+            class="logonav"
+          />
+        </a>
+        <div class="nav-profile">
+          <p class="nav-profile-name">NORTH</p>
+          <div onclick="opencart()" style="cursor: pointer;" class="nav-profile-cart">
+            <i class="fas fa-cart-shopping"></i>
+            <div id="cartcount" class="cartcount" style="display: none;">
+              0
+            </div>
+          </div>
+        </div>
+      </div>
+    </nav>
+
+    <div class="container">
+      <div class="sidebar">
+        <input onkeyup="searchsomething(this)" id="txt_search"
+          type="text"
+          class="sidebar-search"
+          placeholder="Search something..."
+        />
+        <a onclick="searchproduct('all')" class="sidebar-items">All products</a>
+        <a onclick="searchproduct('undawn')" class="sidebar-items">Undawn</a>
+        <a onclick="searchproduct('revelation')" class="sidebar-items">Revelation</a>
+        <a onclick="searchproduct('shell')" class="sidebar-items">Garena</a>
+      </div>
+
+      <div id="productlist" class="product">
+        <!-- <div class="product-items">
+          <img src="./img/RC.jpg" alt="" class="product-img">
+          <p style="font-size: 1.2vw">RC</p>
+          <p style="font-size: .9vw">150 THB</p>
+        </div> -->
+
+    </div>
+
+    <!-- modal Product details -->
+    <div id="modalDesc" class="modal" style="display: none">
+      <div onclick="closeModal()" class="modal-bg"></div>
+      <div class="modal-page">
+        <h2>Details</h2>
+        <br />
+        <div class="modaldec-content">
+          <img
+            id="mdd-img"
+            class="modaldec-img"
+            src="./img/RC.jpg"
+            alt=""
+          />
+          <div class="modal-detail">
+            <p id="mdd-name" style="font-size: 1.5vw">RC</p>
+            <p id="mdd-price" style="font-size: 1.2vw">150 THB</p>
+            <br />
+            <p id="mdd-desc" style="color: #adadad">
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Similique
+              optio suscipit doloribus eligendi natus minima, in nam voluptates,
+              nostrum architecto dolorum amet provident sit! Deleniti dolore
+              quisquam est veritatis ratione!
+            </p>
+            <br />
+            <div class="btn-control">
+              <button onclick="closeModal()" class="btn">Close</button>
+              <button onclick="addtocart()" class="btn btn-buy">Add to cart</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- modal my cart -->
+    <div id="modalCart" class="modal" style="display: none">
+      <div onclick="closeModal()" class="modal-bg"></div>
+      <div class="modal-page">
+        <h2>My cart</h2>
+        <br />
+        <div id="mycart" class="cartlist">
+          <!-- <div class="cartlist-items">
+            <div class="cartlist-left">
+              <img
+                src="./img/RC.jpg"
+                alt=""
+              /> 
+
+              <div class="cartlst-detail">
+                <p style="font-size: 1.5vw">RC</p>
+                <p style="font-size: 1.2 vw">150 THB</p>
+              </div>
+            </div>
+            <div class="cartlist-right">
+              <p class="btnc">-</p>
+              <p style="margin: 0 20px">1</p>
+              <p class="btnc">+</p>
+            </div>
+          </div> -->
+        </div>
+        <!-- Button -->
+        <div class="btn-control">
+            <button onclick="closeModal()" class="btn">Cancel</button>
+            <button onclick="buynow()" class="btn btn-buy">Buy</button>
+          </div>
+      </div>
+    </div>
+  </body>
